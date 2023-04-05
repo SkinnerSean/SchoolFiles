@@ -1,0 +1,52 @@
+CMDSERVER TEXT
+
+[sskinner@sig1 prog5]$ java Boot
+threadOS ver 1.0:
+Type ? for help
+threadOS: a new thread (thread=Thread[Thread-3,2,main] tid=0 pid=-1)
+-->l Shell
+l Shell
+threadOS: a new thread (thread=Thread[Thread-5,2,main] tid=1 pid=0)
+shell[1]% CmdServer &
+CmdServer
+threadOS: a new thread (thread=Thread[Thread-7,2,main] tid=2 pid=1)
+shell[2]% sig1.eecs.wsu.edu is listening on port 5008
+
+shell[2]% sig1.eecs.wsu.edu is listening on port 36413
+Exception in thread "Thread-7" java.lang.NullPointerException
+        at CmdServer.reverseText(CmdServer.java:10)
+        at CmdServer.run(CmdServer.java:107)
+        at java.lang.Thread.run(Thread.java:750)
+Exception in thread "Thread-0" java.lang.IllegalThreadStateException
+        at java.lang.Thread.start(Thread.java:710)
+        at Scheduler.run(Scheduler.java:168)
+
+
+CMDCLIENT TEXT
+
+[sskinner@sig2 prog5]$ java Boot
+threadOS ver 1.0:
+Type ? for help
+threadOS: a new thread (thread=Thread[Thread-3,2,main] tid=0 pid=-1)
+-->l Shell
+l Shell
+threadOS: a new thread (thread=Thread[Thread-5,2,main] tid=1 pid=0)
+shell[1]% CmdClient 5008 sig1.eecs.wsu.edu
+CmdClient
+threadOS: a new thread (thread=Thread[Thread-7,2,main] tid=2 pid=1)
+Here is the user name being sent to the server: sskinner
+36413is the line readHere is the port received from the server36413Please enter text to reverse: example
+elpmaxe
+Please enter text to reverse: it kinda works
+skrow adnik ti
+Please enter text to reverse: ls
+sl
+Please enter text to reverse: man
+nam
+Please enter text to reverse: doesnt properly execute those commands yet
+tey sdnammoc esoht etucexe ylreporp tnseod
+Please enter text to reverse: and now imma break it
+ti kaerb ammi won dna
+Please enter text to reverse: die
+eid
+shell[2]%
